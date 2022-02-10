@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "768847196476",
+    "project_id": "cookfinity-3d61a",
+    "storage_bucket": "cookfinity-3d61a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768847196476:android:0d57d33502b42a8925ae39",
+        "android_client_info": {
+          "package_name": "com.example.cookfinity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "768847196476-4h0t3ertq6fsee33oqgi6krut863v4l0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cookfinity",
+            "certificate_hash": "239235671555187ddbbb2c78b1931b8d063e1708"
+          }
+        },
+        {
+          "client_id": "768847196476-757g4201ul0uuh1da3cqkpcntmoe9qtn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJXYsBeA2uRVcGmlr23TyITltdMDJgR9I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "768847196476-757g4201ul0uuh1da3cqkpcntmoe9qtn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
