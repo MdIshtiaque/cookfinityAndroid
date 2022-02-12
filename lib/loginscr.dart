@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cookfinity/CustomWidgets/custom_text_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -128,13 +129,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Text(
                           "Sign in",
                           style: TextStyle(
-                              fontSize: 65.sp,
+                              fontSize: 50.sp,
                               fontFamily: 'Calibri',
                               color: Colors.white),
                         ),
                         color: Colors.green,
                         padding: EdgeInsets.symmetric(
-                            vertical: 45.h, horizontal: 340.w),
+                            vertical: 45.h, horizontal: 390.w),
                       ),
                     ),
                   ),
@@ -143,23 +144,62 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Center(
                     child: ClipRRect(
-                      child: SignInButton(
-                        Buttons.Google,
-                        text: "Sign in with Google",
-                        onPressed: () {},
-                        shape: RoundedRectangleBorder(
-                          side: const BorderSide(
-                            color: Colors.green,
-                            width: 1,
-                            style: BorderStyle.solid,
+                      //borderRadius: BorderRadius.circular(20),
+                      child: Container(
+                        margin: EdgeInsets.symmetric(
+                            vertical: 5.h, horizontal: 75.w),
+                        child: FlatButton(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 45.h, horizontal: 145.w),
+                          onPressed: () {},
+                          child: Row(
+                            children: [
+                              Image.asset(
+                                "images/google.png",
+                                width: 45.w,
+                              ),
+                              SizedBox(
+                                width: 70.w,
+                              ),
+                              AutoSizeText(
+                                "Sign in with Google",
+                                style: TextStyle(
+                                    fontSize: 50.sp,
+                                    fontFamily: 'Calibri',
+                                    color: Colors.green),
+                              ),
+                            ],
                           ),
-                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white70,
+                          shape: RoundedRectangleBorder(
+                            side: const BorderSide(
+                                color: Colors.green,
+                                width: 1,
+                                style: BorderStyle.solid),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+
                         ),
-                        //color: Colors.green,
-                        padding: EdgeInsets.symmetric(
-                            vertical: 28.h, horizontal: 105.w),
                       ),
                     ),
+                    // child: ClipRRect(
+                    //   child: SignInButton(
+                    //     Buttons.Google,
+                    //     text: "Sign in with Google",
+                    //     onPressed: () {},
+                    //     shape: RoundedRectangleBorder(
+                    //       side: const BorderSide(
+                    //         color: Colors.green,
+                    //         width: 1,
+                    //         style: BorderStyle.solid,
+                    //       ),
+                    //       borderRadius: BorderRadius.circular(20),
+                    //     ),
+                    //     //color: Colors.green,
+                    //     padding: EdgeInsets.symmetric(
+                    //         vertical: 30.w, horizontal: 185.h),
+                    //   ),
+                    // ),
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: 115.h, top: 8.w),
