@@ -1,10 +1,14 @@
 import 'package:cookfinity/CustomWidgets/custom_text_field.dart';
+import 'package:cookfinity/home_screen.dart';
+import 'package:cookfinity/sign_up_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
 import 'Colors/appclr.dart';
+import 'package:page_transition/page_transition.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -25,6 +29,46 @@ class _LoginScreenState extends State<LoginScreen> {
       });
     });
   }
+  final passcntrl = TextEditingController();
+  final emailcntrl = TextEditingController();
+  sign_in()async{
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailcntrl.text,
+          password: passcntrl.text,
+      );
+      var authCredential = userCredential.user;
+      print(authCredential!.uid);
+      if (authCredential.uid.isNotEmpty) {
+        Navigator.pushReplacement(
+            context,
+            PageTransition(
+                type: PageTransitionType.leftToRightWithFade,
+                child: home_screen()));
+      } else {
+        Fluttertoast.showToast(
+            msg: "Somthing is wrong",
+            backgroundColor: Colors.red,
+            textColor: Colors.white);
+      }
+    } on FirebaseAuthException catch (e) {
+
+      if (e.code == 'user-not-found') {
+        Fluttertoast.showToast(
+            msg: "User not found.",
+            toastLength: Toast.LENGTH_SHORT,
+            backgroundColor: Colors.lightBlue,
+            textColor: Colors.white);
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        Fluttertoast.showToast(
+            msg: "Wrong password.",
+            backgroundColor: Colors.red,
+            textColor: Colors.white);
+        print('Wrong password provided for that user.');
+      }
+    }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +96,13 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 474.h,
               width: 330.w,
               decoration: BoxDecoration(
+                image: DecorationImage(
+                  colorFilter:
+                  ColorFilter.mode(Colors.white70.withOpacity(0.8),
+                      BlendMode.darken),
+                  image: AssetImage('images/background.png'),
+                  fit: BoxFit.cover,
+                ),
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(54.r),
@@ -68,7 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 37.h,
                     ),
                     Text(
-                      "Log in",
+                      "Sign in",
                       style: TextStyle(
                           fontSize: 23.sp,
                           fontWeight: FontWeight.w700,
@@ -79,6 +130,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 34.h,
                     ),
                     CustomTextField(
+                      controller: emailcntrl,
                       label: Text(
                         "Email",
                         style: TextStyle(
@@ -93,6 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 21.h,
                     ),
                     CustomTextField(
+                      controller: passcntrl,
                       label: Text(
                         "Password",
                         style: TextStyle(
@@ -123,7 +176,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8.r),
                       child: FlatButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          sign_in();
+                        },
                         child: Text(
                           "Sign in",
                           style: TextStyle(
@@ -216,7 +271,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             width: 1.w,
                           ),
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushReplacement(context, PageTransition(type: PageTransitionType.leftToRightWithFade, child: Sign_up_Screen()));
+                            },
                             child: Text(
                               "Sign up",
                               style: TextStyle(
