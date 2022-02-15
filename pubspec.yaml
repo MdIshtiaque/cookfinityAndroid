@@ -44,6 +44,8 @@ dependencies:
   cloud_firestore: ^3.1.7
   flutter_screenutil: ^5.2.0
   flutter_signin_button: ^2.0.0
+  page_transition: ^2.0.5
+  fluttertoast: ^8.0.8
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +74,8 @@ flutter:
     - Rectangle 1.png
     - CookFinity.png
     - google.png
+    - background.png
+    - hand.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
