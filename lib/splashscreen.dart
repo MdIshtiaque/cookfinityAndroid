@@ -39,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     fontFamily: 'Segoe UI',
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
-                    fontSize: 122.sp),
+                    fontSize: 50.sp),
               ),
               SizedBox(
                 height: 50.h,

@@ -1,9 +1,10 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cookfinity/CustomWidgets/custom_text_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+
+import 'Colors/appclr.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -27,228 +28,213 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double _height = MediaQuery.of(context).size.height;
-    double _width = MediaQuery.of(context).size.width;
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: const Color(0xFF5AB84F),
+      backgroundColor: MyColor.app_green,
       body: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () {
           FocusManager.instance.primaryFocus?.unfocus();
         },
-        child: SafeArea(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //crossAxisAlignment: CrossAxisAlignment.center,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              child: Padding(
-                padding: const EdgeInsets.all(50.0),
-                child: Image.asset(
-                  "images/CookFinity.png",
-
-                  // child: Text(
-                  //   "CookFinity",
-                  //   textAlign: TextAlign.center,
-                  //   style: TextStyle(
-                  //       color: Colors.white,
-                  //       fontWeight: FontWeight.bold,
-                  //       fontSize: 120.sp,
-                  //       fontFamily: 'Calibra'),
-                  // ),
-                ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(46.w, 58.h, 46.w, 58.h),
+              child: Image.asset(
+                "images/CookFinity.png",
+                height: 61.h,
+                width: 238.w,
               ),
             ),
             Container(
-              height: 1631.h,
-              width: 1080.w,
-              decoration: const BoxDecoration(
+              height: 474.h,
+              width: 330.w,
+              decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(50),
-                  topRight: Radius.circular(50),
-                  bottomLeft: Radius.circular(0),
-                  bottomRight: Radius.circular(0),
+                  topLeft: Radius.circular(54.r),
+                  topRight: Radius.circular(54.r),
                 ),
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 50, horizontal: 30),
-                    child: Text(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 31.w),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 37.h,
+                    ),
+                    Text(
                       "Log in",
-                      //textAlign: TextAlign.left,
                       style: TextStyle(
-                          fontSize: 111.sp,
-                          fontWeight: FontWeight.bold,
+                          fontSize: 23.sp,
+                          fontWeight: FontWeight.w700,
                           color: Colors.black,
-                          fontFamily: 'Calibri'),
+                          fontFamily: 'Roboto'),
                     ),
-                  ),
-                  CustomTextField(
-                    label: Text(
-                      "Email",
-                      style: TextStyle(color: Colors.black54, fontSize: 53.sp),
+                    SizedBox(
+                      height: 34.h,
                     ),
-                    prefixIcon: const Icon(Icons.mail, color: Colors.black12),
-                  ),
-                  CustomTextField(
-                    label: Text(
-                      "Password",
-                      style: TextStyle(color: Colors.black54, fontSize: 53.sp),
+                    CustomTextField(
+                      label: Text(
+                        "Email",
+                        style: TextStyle(
+                            color: Colors.black54,
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w400),
+                      ),
+                      prefixIcon:
+                          const Icon(Icons.mail, color: Colors.black12),
                     ),
-                    obscureText: !_showPass,
-                    prefixIcon: const Icon(
-                      Icons.lock,
-                      color: Colors.black12,
+                    SizedBox(
+                      height: 21.h,
                     ),
-                    suffixIcon: IconButton(
-                        onPressed: () {
-                          passVisibility();
-                        },
-                        icon: _showPass
-                            ? const Icon(Icons.visibility_rounded,
-                                color: Colors.black12)
-                            : const Icon(
-                                Icons.visibility_off,
-                                color: Colors.black12,
-                              )),
-                  ),
-                  SizedBox(
-                    height: 100.h,
-                  ),
-                  Center(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
+                    CustomTextField(
+                      label: Text(
+                        "Password",
+                        style: TextStyle(
+                            color: Colors.black54,
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w400),
+                      ),
+                      obscureText: !_showPass,
+                      prefixIcon: const Icon(
+                        Icons.lock,
+                        color: Colors.black12,
+                      ),
+                      suffixIcon: IconButton(
+                          onPressed: () {
+                            passVisibility();
+                          },
+                          icon: _showPass
+                              ? const Icon(Icons.visibility_rounded,
+                                  color: Colors.black12)
+                              : const Icon(
+                                  Icons.visibility_off,
+                                  color: Colors.black12,
+                                )),
+                    ),
+                    SizedBox(
+                      height: 64.h,
+                    ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8.r),
                       child: FlatButton(
                         onPressed: () {},
                         child: Text(
                           "Sign in",
                           style: TextStyle(
-                              fontSize: 50.sp,
-                              fontFamily: 'Calibri',
-                              color: Colors.white),
+                              fontSize: 15.sp,
+                              fontFamily: 'Roboto',
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400),
                         ),
-                        color: Colors.green,
+                        color: MyColor.app_green,
                         padding: EdgeInsets.symmetric(
-                            vertical: 45.h, horizontal: 390.w),
+                            vertical: 13.h, horizontal: 110.w),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  Center(
-                    child: ClipRRect(
-                      //borderRadius: BorderRadius.circular(20),
-                      child: Container(
-                        margin: EdgeInsets.symmetric(
-                            vertical: 5.h, horizontal: 75.w),
-                        child: FlatButton(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 45.h, horizontal: 145.w),
-                          onPressed: () {},
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8.r),
+                      child: FlatButton(
+                        onPressed: () {},
+                        shape: RoundedRectangleBorder(
+                          side: const BorderSide(
+                            color: MyColor.app_green,
+                            width: 1,
+                            style: BorderStyle.solid,
+                          ),
+                          borderRadius: BorderRadius.circular(8.r),
+                        ),
+                        child: Padding(
+                          padding:
+                              EdgeInsets.fromLTRB(30.w, 13.h, 30.w, 13.h),
                           child: Row(
+                            //mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Image.asset(
                                 "images/google.png",
-                                width: 45.w,
+                                height: 19.h,
                               ),
                               SizedBox(
-                                width: 70.w,
+                                width: 26.w,
                               ),
-                              AutoSizeText(
+                              Text(
                                 "Sign in with Google",
                                 style: TextStyle(
-                                    fontSize: 50.sp,
-                                    fontFamily: 'Calibri',
-                                    color: Colors.green),
+                                    fontSize: 15.sp,
+                                    fontFamily: 'Roboto',
+                                    color: MyColor.app_green,
+                                    fontWeight: FontWeight.w400),
                               ),
                             ],
                           ),
-                          color: Colors.white70,
-                          shape: RoundedRectangleBorder(
-                            side: const BorderSide(
-                                color: Colors.green,
-                                width: 1,
-                                style: BorderStyle.solid),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-
                         ),
+                        color: Colors.white,
                       ),
                     ),
-                    // child: ClipRRect(
-                    //   child: SignInButton(
-                    //     Buttons.Google,
-                    //     text: "Sign in with Google",
-                    //     onPressed: () {},
-                    //     shape: RoundedRectangleBorder(
-                    //       side: const BorderSide(
-                    //         color: Colors.green,
-                    //         width: 1,
-                    //         style: BorderStyle.solid,
-                    //       ),
-                    //       borderRadius: BorderRadius.circular(20),
-                    //     ),
-                    //     //color: Colors.green,
-                    //     padding: EdgeInsets.symmetric(
-                    //         vertical: 30.w, horizontal: 185.h),
-                    //   ),
-                    // ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 115.h, top: 8.w),
-                    child: InkWell(
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    InkWell(
                       onTap: () {},
                       child: Text(
-                        "Forgot Password?",
+                        "Forgot password?",
                         style: TextStyle(
-                            fontSize: 41.sp,
-                            fontFamily: 'Calibre',
-                            color: const Color(0xFF707070)),
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black,
+                            fontFamily: 'Calibri'),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 70.h,
-                  ),
-                  Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Don't have account?",
-                          style: TextStyle(
-                              fontSize: 41.sp,
-                              fontFamily: 'Calibre',
-                              color: const Color(0xFF707070)),
-                        ),
-                        SizedBox(
-                          width: 5.w,
-                        ),
-                        InkWell(
-                          onTap: () {},
-                          child: Text(
-                            "Sign up",
-                            style: TextStyle(
-                                fontSize: 41.sp,
-                                fontFamily: 'Calibre',
-                                color: const Color(0xFF5AB84F)),
-                          ),
-                        )
-                      ],
+                    SizedBox(
+                      height: 23.h,
                     ),
-                  )
-                ],
+                    Padding(
+                      padding: EdgeInsets.only(left: 55.w),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Don't have account?",
+                            style: TextStyle(
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.black,
+                                fontFamily: 'Roboto'),
+                          ),
+                          SizedBox(
+                            width: 1.w,
+                          ),
+                          InkWell(
+                            onTap: () {},
+                            child: Text(
+                              "Sign up",
+                              style: TextStyle(
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w400,
+                                  color: MyColor.app_green,
+                                  fontFamily: 'Roboto'),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
-        )),
+        ),
       ),
     );
   }

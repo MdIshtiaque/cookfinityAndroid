@@ -1,3 +1,4 @@
+import 'package:cookfinity/loginscr.dart';
 import 'package:cookfinity/splashscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -14,15 +15,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(1080, 2340),
-        builder: () {
-          return const MaterialApp(
-            debugShowCheckedModeBanner: false,
 
-            home: SplashScreen(),
-          );
-        }
+    return ScreenUtilInit(
+      designSize: const Size(330, 651),
+
+      builder: () => MaterialApp(
+
+        debugShowCheckedModeBanner: false,
+        home: SplashScreen(),
+      ),
+
     );
   }
 }

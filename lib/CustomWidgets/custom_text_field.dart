@@ -24,22 +24,7 @@ class CustomTextField extends StatelessWidget {
       : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(30, 10, 30, 10),
-      decoration: BoxDecoration(
-          // boxShadow: [
-          //   BoxShadow(
-          //     color: Colors.green.withOpacity(0.3),
-          //     spreadRadius: 3,
-          //     blurRadius: 7,
-          //     offset: const Offset(0, 3), // changes position of shadow
-          //   ),
-          // ],
-          color: Colors.white,
-
-          borderRadius: const BorderRadius.all(Radius.circular(10))),
-
-      child: TextFormField(
+    return TextFormField(
         controller: controller,
         keyboardType: keyboardType,
         validator: validator,
@@ -48,22 +33,23 @@ class CustomTextField extends StatelessWidget {
           // fillColor : Colors.red,
           // focusColor: Colors.green,
           border: InputBorder.none,
-          enabledBorder: const OutlineInputBorder(
+          enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black12, width: 2),
-            borderRadius: BorderRadius.all(Radius.circular(20)),
+            borderRadius: BorderRadius.all(Radius.circular(8.r)),
           ),
-          focusedBorder: const OutlineInputBorder(
+          focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black12, width: 2.5),
-            borderRadius: BorderRadius.all(Radius.circular(20)),
+            borderRadius: BorderRadius.all(Radius.circular(8.r)),
           ),
-
+          contentPadding:
+          EdgeInsets.symmetric(horizontal: 50.w, vertical: 13.h),
           label: label,
           labelStyle: const TextStyle(color: Colors.green),
           hintText: hintText,
           prefixIcon: prefixIcon,
           suffixIcon: suffixIcon,
         ),
-      ),
-    );
+      );
+
   }
 }
