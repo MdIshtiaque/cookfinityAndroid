@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:cookfinity/Colors/appclr.dart';
 import 'package:cookfinity/loginscr.dart';
+import 'package:cookfinity/userform.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Timer(
-        const Duration(seconds: 3),
+        const Duration(seconds: 2),
         () => Navigator.pushReplacement(
             context, CupertinoPageRoute(builder: (_) => const LoginScreen())));
     // TODO: implement initState
